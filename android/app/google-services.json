@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "799858095542",
+    "project_id": "nuevaprueba-f6e70",
+    "storage_bucket": "nuevaprueba-f6e70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799858095542:android:c1430df3cfa07a4c49fd17",
+        "android_client_info": {
+          "package_name": "com.example.fire_todo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799858095542-cfm0ea0r7e0vd9l1t0kp18tfgarrba7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fire_todo_app",
+            "certificate_hash": "ce23e14950741c387fd5ce1f63dddbbf8ca393d7"
+          }
+        },
+        {
+          "client_id": "799858095542-elil2q4s6o4b1c59t1clsmn27cuscctp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk2RwWu2B_02tqR6Q6K4nheRa5TkWaPak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799858095542-elil2q4s6o4b1c59t1clsmn27cuscctp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
