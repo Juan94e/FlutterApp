@@ -1,4 +1,4 @@
-# fire_todo_app
+# App Conectada a firebase
 
 A new Flutter project.
 
