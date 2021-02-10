@@ -12,10 +12,7 @@ class WelcomePage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              DeliveryColors.green,
-              DeliveryColors.purple,
-            ],
+            colors: deliveryGradients,
           ),
         ),
         child: Column(
@@ -25,17 +22,24 @@ class WelcomePage extends StatelessWidget {
             Container(
               child: CircleAvatar(
                 backgroundColor: Colors.transparent,
-                radius: 130,
+                radius: 130, // tamaño de la imagen
                 child: Padding(
                   padding: const EdgeInsets.all(12),
                   child: Image.asset('assets/images/repairs.png'),
                 ),
               ),
             ),
-            // SizedBox(
-            //   height: 30.0,
-            // ),
-            // Text('Bienvenido a Nito-App', textAlign),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              'Bienvenido',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
               //como ponerle un shadow del otro color
               child: SignInButtonBuilder(

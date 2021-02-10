@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DeliveryColors {
   static final purple = Color(0xFF5117AC);
@@ -9,3 +10,16 @@ class DeliveryColors {
   static final white = Color(0xFFFFFFFF);
   static final pink = Color(0xFFF5638B);
 }
+
+final deliveryGradients = [
+  DeliveryColors.green,
+  DeliveryColors.purple,
+];
+
+//diegodeveloper
+final lightTheme = ThemeData(
+  textTheme: GoogleFonts.poppinsTextTheme().apply(
+    bodyColor: DeliveryColors.white,
+    displayColor: DeliveryColors.white,
+  ),
+);

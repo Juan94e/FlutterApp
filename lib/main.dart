@@ -1,3 +1,4 @@
+import 'package:fire_todo_app/presentation/theme.dart';
 import 'package:fire_todo_app/routes/my_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,6 +10,7 @@ void main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: lightTheme,
       initialRoute: '/welcomepage',
       navigatorKey: Get.key,
       getPages: routes(),
