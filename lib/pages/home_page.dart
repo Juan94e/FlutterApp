@@ -8,8 +8,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Login Firebase - Email - Google",
-          style: TextStyle(fontSize: 12),
+          "Welcome",
+          style: TextStyle(fontSize: 20),
         ),
       ),
       body: Column(
@@ -18,6 +18,9 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 100,
           ),
+          // FloatingActionButton(
+          //   onPressed: () => Get.toNamed("/welcomepage"),
+          // ),
           Container(
             //como ponerle un shadow del otro color
             child: SignInButtonBuilder(

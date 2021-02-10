@@ -9,7 +9,7 @@ void main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/welcomepage',
       navigatorKey: Get.key,
       getPages: routes(),
     ),
