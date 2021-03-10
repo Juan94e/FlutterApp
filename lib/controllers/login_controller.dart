@@ -48,7 +48,7 @@ class LoginController extends GetxController {
     final String uid = user.uid;
     Get.snackbar('Out', uid + ' has successfully signed out.',
         snackPosition: SnackPosition.BOTTOM);
-    Get.toNamed("/home");
+    Get.toNamed("/welcomepage");
   }
 
   //Example code of how to sign in with Google.

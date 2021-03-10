@@ -12,9 +12,16 @@ class FoodPage extends StatelessWidget {
         title: Text('Food Network'),
         actions: <Widget>[
           Builder(builder: (BuildContext context) {
-            return FlatButton(
-              child: const Text('Sign out'),
-              textColor: Theme.of(context).buttonColor,
+            //era un flatbutton
+            return TextButton(
+              style: TextButton.styleFrom(
+                  //textStyle: Colors.black,
+                  //backgroundColor: Colors.orange,
+                  ),
+              child: const Text(
+                'Sign out',
+                style: TextStyle(color: Colors.white),
+              ),
               onPressed: () async {
                 controller.signOut();
               },

@@ -7,7 +7,10 @@ import 'package:get/route_manager.dart';
 
 routes() => [
       GetPage(name: "/home", page: () => HomePage()),
-      GetPage(name: "/registration", page: () => RegisterLoginPage()),
+      GetPage(
+          name: "/registration",
+          page: () => RegisterLoginPage(),
+          transition: Transition.zoom),
       GetPage(name: "/loginpage", page: () => LoginPage()),
       GetPage(name: "/logingoogle", page: () => LoginPage()),
       GetPage(name: "/welcomepage", page: () => WelcomePage()),

@@ -5,85 +5,132 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:get/get.dart';
 
+const logoSize = 70.0;
+
 class LoginPage extends StatelessWidget {
   final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final moreSize = 50.0;
+
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('Login Page'),
+      // ),
       body: GetBuilder<LoginController>(
         init: LoginController(),
         builder: (_) {
-          return SingleChildScrollView(
-            child: Form(
-                key: controller.formKey,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 100,
-                        ),
-                        Container(
-                          child: const Text(
-                            'Login Page',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+          return Column(
+            children: [
+              //expanded para crear logo.
+              Expanded(
+                flex: 2,
+                child: Stack(
+                  children: [
+                    //positioned para el circulo decorativo
+                    Positioned(
+                      bottom: logoSize,
+                      left: -moreSize,
+                      right: -moreSize,
+                      height: width + moreSize,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.green[200],
+                          borderRadius: BorderRadius.vertical(
+                            bottom: Radius.circular(200),
                           ),
-                          alignment: Alignment.center,
                         ),
-                        SizedBox(
-                          height: 50,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: logoSize,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Image.asset('assets/images/repairs.png'),
                         ),
-                        TextFormField(
-                          controller: controller.emailController,
-                          decoration: const InputDecoration(labelText: 'Email'),
-                          validator: (String value) {
-                            if (value.isEmpty) return 'please enter some text';
-                            return null;
-                          },
-                        ),
-                        TextFormField(
-                          controller: controller.passwordController,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          ],
-                          decoration:
-                              const InputDecoration(labelText: 'Password'),
-                          validator: (String value) {
-                            if (value.isEmpty) return 'please enter some text';
-                            return null;
-                          },
-                          obscureText: true,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(top: 16.0),
-                          alignment: Alignment.center,
-                          child: SignInButton(
-                            Buttons.Email,
-                            //shape: StadiumBorder(),
-                            text: "Sign In",
-                            onPressed: () async {
-                              _.signInWithEmailAndPassword();
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              //expanded de los textfields
+              Expanded(
+                flex: 4,
+                child: Form(
+                  key: controller.formKey,
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          TextFormField(
+                            //style para cambiar el color del input
+                            style: TextStyle(color: Colors.black),
+                            autofocus: true,
+                            keyboardType: TextInputType.emailAddress,
+                            controller: controller.emailController,
+                            decoration:
+                                const InputDecoration(labelText: 'Email'),
+                            validator: (String value) {
+                              if (value.isEmpty)
+                                return 'please enter some text';
+                              return null;
                             },
                           ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(top: 16.0),
-                          alignment: Alignment.center,
-                          child: SignInButton(
-                            Buttons.GoogleDark,
-                            text: "Sign in with Google",
-                            onPressed: () async {
-                              _.signInWithGoogle();
+                          TextFormField(
+                            style: TextStyle(color: Colors.black),
+                            controller: controller.passwordController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            decoration:
+                                const InputDecoration(labelText: 'Password'),
+                            validator: (String value) {
+                              if (value.isEmpty)
+                                return 'please enter some text';
+                              return null;
                             },
+                            obscureText: true,
                           ),
-                        )
-                      ],
+                          Container(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            alignment: Alignment.center,
+                            child: SignInButton(
+                              Buttons.Email,
+                              //shape: StadiumBorder(),
+                              text: "Sign In",
+                              onPressed: () async {
+                                _.signInWithEmailAndPassword();
+                              },
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            alignment: Alignment.center,
+                            child: SignInButton(
+                              Buttons.GoogleDark,
+                              text: "Sign in with Google",
+                              onPressed: () async {
+                                _.signInWithGoogle();
+                              },
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                )),
+                ),
+              ),
+            ], //children del column
           );
         },
       ),
