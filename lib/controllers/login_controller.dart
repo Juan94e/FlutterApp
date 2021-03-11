@@ -23,7 +23,7 @@ class LoginController extends GetxController {
       Future.delayed(
         Duration(seconds: 2),
         () {
-          Get.toNamed("/foodpage");
+          Get.offNamed("/foodpage");
         },
       );
     } catch (e) {
@@ -48,7 +48,7 @@ class LoginController extends GetxController {
     final String uid = user.uid;
     Get.snackbar('Out', uid + ' has successfully signed out.',
         snackPosition: SnackPosition.BOTTOM);
-    Get.toNamed("/welcomepage");
+    Get.offAllNamed("/welcomepage");
   }
 
   //Example code of how to sign in with Google.

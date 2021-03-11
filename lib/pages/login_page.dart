@@ -5,19 +5,34 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:get/get.dart';
 
-const logoSize = 70.0;
+const _logoSize2 = 70.0;
 
 class LoginPage extends StatelessWidget {
-  final controller = Get.put(LoginController());
+  final _controller2 = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final width = size.width;
-    final moreSize = 50.0;
+    final _size2 = MediaQuery.of(context).size;
+    final _width2 = _size2.width;
+    final _moreSize2 = 50.0;
 
     return Scaffold(
       // appBar: AppBar(
+      //   backgroundColor: Colors.green[200],
       //   title: Text('Login Page'),
+      //   elevation: 0.0,
+      //   actions: [
+      //     TextButton(
+      //       style: TextButton.styleFrom(
+      //           //textStyle: Colors.black,
+      //           //backgroundColor: Colors.orange,
+      //           ),
+      //       child: const Text(
+      //         'Pagina principal',
+      //         style: TextStyle(color: Colors.white),
+      //       ),
+      //       onPressed: () => Get.toNamed("/welcomepage"),
+      //     ),
+      //   ],
       // ),
       body: GetBuilder<LoginController>(
         init: LoginController(),
@@ -31,10 +46,10 @@ class LoginPage extends StatelessWidget {
                   children: [
                     //positioned para el circulo decorativo
                     Positioned(
-                      bottom: logoSize,
-                      left: -moreSize,
-                      right: -moreSize,
-                      height: width + moreSize,
+                      bottom: _logoSize2,
+                      left: -_moreSize2,
+                      right: -_moreSize2,
+                      height: _width2 + _moreSize2,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.green[200],
@@ -48,7 +63,7 @@ class LoginPage extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
-                        radius: logoSize,
+                        radius: _logoSize2,
                         child: Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Image.asset('assets/images/repairs.png'),
@@ -63,7 +78,7 @@ class LoginPage extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: Form(
-                  key: controller.formKey,
+                  key: _controller2.formKey,
                   child: Container(
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -75,7 +90,7 @@ class LoginPage extends StatelessWidget {
                             style: TextStyle(color: Colors.black),
                             autofocus: true,
                             keyboardType: TextInputType.emailAddress,
-                            controller: controller.emailController,
+                            controller: _controller2.emailController,
                             decoration:
                                 const InputDecoration(labelText: 'Email'),
                             validator: (String value) {
@@ -86,7 +101,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           TextFormField(
                             style: TextStyle(color: Colors.black),
-                            controller: controller.passwordController,
+                            controller: _controller2.passwordController,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.allow(
@@ -123,7 +138,7 @@ class LoginPage extends StatelessWidget {
                                 _.signInWithGoogle();
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
